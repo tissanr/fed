@@ -1,0 +1,21 @@
+[package]
+name = "fed"
+version = "0.1.0"
+edition = "2021"
+description = "Open files in their default application from the command line"
+authors = []
+license = "MIT"
+
+[[bin]]
+name = "fed"
+path = "src/main.rs"
+
+[dependencies]
+open = "5"
+clap = { version = "4", features = ["derive"] }
+
+[profile.release]
+opt-level = "z"
+lto = true
+codegen-units = 1
+strip = true
