@@ -1,5 +1,5 @@
-BINARY     := fed
-INSTALL_DIR := /usr/local/bin
+BINARY      := fed
+INSTALL_DIR := $(HOME)/.cargo/bin
 
 .PHONY: all build release install uninstall clean check fmt
 

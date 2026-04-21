@@ -74,8 +74,8 @@ make uninstall
 |-------------|---------------------------------------------|
 | `build`     | Debug build (`cargo build`)                 |
 | `release`   | Optimised release build                     |
-| `install`   | Release build → `/usr/local/bin/fed`        |
-| `uninstall` | Remove `/usr/local/bin/fed`                 |
+| `install`   | Release build → `~/.cargo/bin/fed`          |
+| `uninstall` | Remove `~/.cargo/bin/fed`                   |
 | `clean`     | Remove build artifacts                      |
 | `check`     | Run Clippy lints                            |
 | `fmt`       | Format source with `rustfmt`                |
