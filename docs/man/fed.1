@@ -1,0 +1,84 @@
+.TH FED 1 "April 30, 2026" "fed 0.1.0" "User Commands"
+.SH NAME
+fed \- open files with their default application
+.SH SYNOPSIS
+.B fed
+[\fIOPTIONS\fR] \fIFILE\fR...
+.br
+.B fed
+.B \-o
+\fIFILE\fR
+.br
+.B fed
+.B \-\-options
+\fIFILE\fR
+.SH DESCRIPTION
+.B fed
+opens one or more files or directories with the operating system's default
+application.
+.PP
+When
+.B \-\-options
+is used,
+.B fed
+lists applications registered on the current computer that can open the given
+file. Discovery mode does not open the file.
+.SH OPTIONS
+.TP
+.BR \-o ", " \-\-options " " \fIFILE\fR
+List applications that can open
+.IR FILE .
+.TP
+.BR \-h ", " \-\-help
+Print help.
+.TP
+.BR \-V ", " \-\-version
+Print version.
+.SH EXAMPLES
+.TP
+.B fed photo.jpg
+Open
+.IR photo.jpg .
+.TP
+.B fed report.pdf notes.txt
+Open multiple files.
+.TP
+.B fed .
+Open the current directory.
+.TP
+.B fed --options report.pdf
+List applications that can open
+.IR report.pdf .
+.TP
+.B fed -o report.pdf
+List applications that can open
+.IR report.pdf
+using the short option.
+.SH EXIT STATUS
+.TP
+.B 0
+All requested work completed successfully.
+.TP
+.B 1
+At least one file was missing, opening failed, or options discovery failed.
+.PP
+Default open mode is best-effort: when multiple paths are provided, later paths
+are still attempted after earlier failures.
+.SH FILES
+.TP
+.I ~/.cargo/bin/fed
+Default install location used by the Makefile and Windows installer
+documentation where applicable.
+.TP
+.I docs/man/fed.1
+Source man page in the repository.
+.SH SEE ALSO
+.BR open (1),
+.BR xdg-open (1),
+.BR xdg-mime (1)
+.PP
+These platform mechanisms may not be available on every system.
+.SH AUTHOR
+The fed contributors
+.SH LICENSE
+MIT
