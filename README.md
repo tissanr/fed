@@ -6,6 +6,7 @@ Open any file from the command line using its default application — on macOS, 
 fed photo.jpg
 fed report.pdf notes.txt
 fed .
+fed --options report.pdf
 ```
 
 No configuration needed. `fed` delegates to the OS:
@@ -21,14 +22,15 @@ No configuration needed. `fed` delegates to the OS:
 ## Usage
 
 ```
-fed [FILE]...
+fed [OPTIONS] [FILE]...
 
 Arguments:
   <FILE>...  One or more files (or directories) to open
 
 Options:
-  -h, --help     Print help
-  -V, --version  Print version
+  -o, --options <FILE>  List applications that can open FILE
+  -h, --help            Print help
+  -V, --version         Print version
 ```
 
 **Examples**
@@ -45,7 +47,30 @@ fed .
 
 # Open a specific directory
 fed ~/Downloads
+
+# List registered applications that can open a PDF without opening it
+fed --options report.pdf
+
+# Short form
+fed -o report.pdf
 ```
+
+`--options` lists registered applications known to the operating system and does not open the file.
+
+---
+
+## Roadmap
+
+Development is tracked through prompt specifications in `docs/prompts/`.
+
+| Prompt | Focus | Prompt status | Implementation status |
+|--------|-------|---------------|-----------------------|
+| `PROMPT-01-Init.md` | Initial `fed <FILE>...` CLI that opens files and directories with the OS default application | Delivered | Implemented |
+| `PROMPT-02–Options.md` | Add `-o, --options <FILE>` to list applications that can open a file | Delivered | Implemented |
+| `PROMPT-03-Man-Pages.md` | Add a Unix man page and user-local man page install targets | Delivered | Planned |
+| `PROMPT-04-Help.md` | Improve `-h, --help` output with complete usage, examples, and tests | Delivered | Planned |
+
+Planned items describe the intended direction and acceptance criteria, but are not part of the current runtime behavior until implemented.
 
 ---
 
