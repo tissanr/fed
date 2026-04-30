@@ -83,10 +83,13 @@ Planned items describe the intended direction and acceptance criteria, but are n
 git clone https://github.com/tissanr/fed.git
 cd fed
 
-# Debug build (fast)
+# Release build
 make
 
-# Release build + install to /usr/local/bin
+# Debug build (fast)
+make debug
+
+# Release build + install to ~/.cargo/bin
 make install
 
 # Uninstall
@@ -97,7 +100,8 @@ make uninstall
 
 | Target      | Description                                 |
 |-------------|---------------------------------------------|
-| `build`     | Debug build (`cargo build`)                 |
+| `build`     | Release build (`cargo build --release`)     |
+| `debug`     | Debug build (`cargo build`)                 |
 | `release`   | Optimised release build                     |
 | `install`   | Release build → `~/.cargo/bin/fed`          |
 | `uninstall` | Remove `~/.cargo/bin/fed`                   |
