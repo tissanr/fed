@@ -1,11 +1,13 @@
 BINARY      := fed
 INSTALL_DIR := $(HOME)/.cargo/bin
 
-.PHONY: all build release install uninstall clean check fmt
+.PHONY: all build debug release install uninstall clean check fmt
 
-all: build
+all: release
 
-build:
+build: release
+
+debug:
 	cargo build
 
 release:
